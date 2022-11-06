@@ -1,19 +1,23 @@
 package Logica.relaciones;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import Logica.entidades.Competencia;
+import Logica.entidades.Puesto;
 
 @Entity
 @Table(name= "Ponderacion_Competencia")
 public class PonderacionCompetencia {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_pc")
-	private int id;
+	
+	@EmbeddedId
+	private PuestoCompetencia id = new PuestoCompetencia();
+	
+	@ManyToOne
+	@MapsId("id_puesto")
+	public Puesto puesto;
 	@Column(name = "ponderacion")
 	public Integer ponderacion;
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="id_competencia", referencedColumnName = "id_competencia")
+	@MapsId("id_competencia")
 	public Competencia competencia;
 	
 	public PonderacionCompetencia(Integer ponderacion, Competencia competencia) {
@@ -37,6 +41,5 @@ public class PonderacionCompetencia {
 	public void setCompetencia(Competencia competencia) {
 		this.competencia = competencia;
 	}
-
 }
 

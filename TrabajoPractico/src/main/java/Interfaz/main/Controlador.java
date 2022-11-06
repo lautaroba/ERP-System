@@ -5,15 +5,11 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
 import BaseDeDatos.Conexion.Temporal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
@@ -27,9 +23,6 @@ import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import javafx.util.converter.DoubleStringConverter;
@@ -231,13 +224,11 @@ public class Controlador implements Initializable{
 	
 	// BOTÓN ACEPTAR, COMPRUEBA SI LOS TODOS LOS DATOS FUERON CARGADOS Y LOS GUARDA, EN EL CASO DE QUE NO HAYAN SIDO GUARDADO ACTIVA LOS LABELS DE ERROR
 	public void aceptar(ActionEvent event) {
-		
-		EventQueue
-		
 		Prueba();
 	}
 	
 	// COMPRUEBA SI NO ESTÁN VACIOS Y ACTIVA LABEL DE ERROR EN CASO DE ESTARLO
+	@SuppressWarnings("unused")
 	private boolean comprobarDatos(int cod, String pto, String emp, String desc) {
 		
 		if (!actitudinalesCheckBox.isSelected() && !tecnicasCheckBox.isSelected()) tipoCompErrorLabel.setVisible(true);

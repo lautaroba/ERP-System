@@ -1,6 +1,6 @@
 package Logica.entidades;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import Logica.enumeraciones.TipoCompetencia;
 
 @Entity

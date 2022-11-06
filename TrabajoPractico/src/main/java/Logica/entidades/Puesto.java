@@ -2,7 +2,7 @@ package Logica.entidades;
 
 import java.util.ArrayList;
 import java.util.Objects;
-import javax.persistence.*;
+import jakarta.persistence.*;
 import Logica.relaciones.PonderacionCompetencia;
 
 @Entity
@@ -21,7 +21,8 @@ public class Puesto {
 	public String descripcion;
 	@Column(name = "empresa")
 	public String empresa;
-	@OneToMany(mappedBy = "puesto", cascade = CascadeType.ALL, orphanRemoval= true)
+	@ElementCollection
+	@OneToMany(mappedBy="puesto")
 	public ArrayList<PonderacionCompetencia> ponderaciones;
 
 	public Puesto(Integer codigo, String nombre, String descripcion, String empresa,

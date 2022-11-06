@@ -9,7 +9,7 @@ public class CompetenciasInterfaz {
 	private CheckBox checkSelComp = new CheckBox();
 	private Double puntDeseada;
 
-	public CompetenciasInterfaz(){
+	public CompetenciasInterfaz() {
 		this.nombreComp = "";
 		this.puntComp = 0.0;
 		this.puntDeseada = 0.0;
