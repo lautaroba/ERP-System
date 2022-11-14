@@ -8,11 +8,8 @@ import Logica.enumeraciones.TipoCompetencia;
 public class Competencia {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_competencia")
-	private int id;
-	@Column(name = "codigo")
-	private Integer codigo;
+	private Integer id_competencia;
 	@Column(name = "nombre")
 	private String nombre;
 	@Column(name = "descripcion")
@@ -22,18 +19,18 @@ public class Competencia {
 
 	public Competencia(Integer codigo, String nombre, String descripcion, TipoCompetencia tipoCompetencia) {
 		super();
-		this.codigo = codigo;
+		this.id_competencia = codigo;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.tipoCompetencia = tipoCompetencia;
 	}
 
 	public Integer getCodigo() {
-		return codigo;
+		return id_competencia;
 	}
 
 	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
+		this.id_competencia = codigo;
 	}
 
 	public String getNombre() {

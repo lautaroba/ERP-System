@@ -1,29 +1,34 @@
 package Logica.relaciones;
 
 import jakarta.persistence.*;
+import java.io.Serializable;
 import Logica.entidades.Competencia;
 import Logica.entidades.Puesto;
 
-@Entity
-@Table(name= "Ponderacion_Competencia")
-public class PonderacionCompetencia {
-	
-	@EmbeddedId
-	private PuestoCompetencia id = new PuestoCompetencia();
-	
-	@ManyToOne
-	@MapsId("id_puesto")
-	public Puesto puesto;
-	@Column(name = "ponderacion")
-	public Integer ponderacion;
-	@OneToOne(cascade = CascadeType.ALL)
-	@MapsId("id_competencia")
+@SuppressWarnings("serial")
+@Entity(name="Ponderacion_competencia")
+public class PonderacionCompetencia implements Serializable{
+
+	@Id
+	@ManyToOne(cascade= CascadeType.ALL)
+	@JoinColumn(name="id_competencia", referencedColumnName="id_competencia")
 	public Competencia competencia;
 	
-	public PonderacionCompetencia(Integer ponderacion, Competencia competencia) {
+	
+	@Id
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@JoinColumn(name="id_puesto")
+	public Puesto puesto;
+	
+	@Column(name = "ponderacion")
+	public Integer ponderacion;
+
+	
+	public PonderacionCompetencia(Integer ponderacion, Competencia competencia, Puesto p) {
 		super();
 		this.ponderacion = ponderacion;
 		this.competencia = competencia;
+		this.puesto = p;
 	}
 
 	public Integer getPonderacion() {

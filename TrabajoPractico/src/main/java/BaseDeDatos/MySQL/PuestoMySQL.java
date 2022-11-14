@@ -12,7 +12,10 @@ public class PuestoMySQL{
 	}
 
 	public static void ModificarPuesto(Puesto p) {
-		// TODO Auto-generated method stub
+
+		Temporal.entity.getTransaction().begin();
+		Temporal.entity.merge(p);
+		Temporal.entity.getTransaction().commit();
 		
 	}
 
@@ -21,8 +24,7 @@ public class PuestoMySQL{
 		
 	}
 
-	public Puesto BuscarPuesto(Puesto p) {
-		// TODO Auto-generated method stub
-		return null;
+	public static Puesto BuscarPuesto(Puesto p) {
+		return Temporal.entity.find(Puesto.class, p.getCodigo());
 	}
 }

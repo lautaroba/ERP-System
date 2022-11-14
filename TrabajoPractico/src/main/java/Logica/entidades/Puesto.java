@@ -1,6 +1,7 @@
 package Logica.entidades;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import jakarta.persistence.*;
 import Logica.relaciones.PonderacionCompetencia;
@@ -10,25 +11,26 @@ import Logica.relaciones.PonderacionCompetencia;
 public class Puesto {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_puesto")
-	private int id;
-	@Column(name = "codigo")
-	public Integer codigo;
+	public Integer id_puesto;
 	@Column(name = "nombre")
 	public String nombre;
 	@Column(name = "descripcion")
 	public String descripcion;
 	@Column(name = "empresa")
 	public String empresa;
-	@ElementCollection
-	@OneToMany(mappedBy="puesto")
-	public ArrayList<PonderacionCompetencia> ponderaciones;
+	
+	@OneToMany(
+			mappedBy="puesto",
+	        cascade = CascadeType.ALL,
+	        orphanRemoval = false
+			)
+	public List<PonderacionCompetencia> ponderaciones = new ArrayList<>();
 
 	public Puesto(Integer codigo, String nombre, String descripcion, String empresa,
-			ArrayList<PonderacionCompetencia> ponderaciones) {
+			List<PonderacionCompetencia> ponderaciones) {
 		super();
-		this.codigo = codigo;
+		this.id_puesto = codigo;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.empresa = empresa;
@@ -37,13 +39,13 @@ public class Puesto {
 
 	public Puesto(Integer codigo, String nombre, String descripcion, String empresa) {
 		super();
-		this.codigo = codigo;
+		this.id_puesto = codigo;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.empresa = empresa;
 	}
 
-	public ArrayList<PonderacionCompetencia> getPonderaciones() {
+	public List<PonderacionCompetencia> getPonderaciones() {
 		return ponderaciones;
 	}
 
@@ -52,11 +54,11 @@ public class Puesto {
 	}
 
 	public Integer getCodigo() {
-		return codigo;
+		return id_puesto;
 	}
 
 	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
+		this.id_puesto = codigo;
 	}
 
 	public String getNombre() {
@@ -85,7 +87,7 @@ public class Puesto {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(codigo, descripcion, empresa, nombre);
+		return Objects.hash(id_puesto, descripcion, empresa, nombre);
 	}
 
 	@Override
@@ -97,7 +99,7 @@ public class Puesto {
 		if (getClass() != obj.getClass())
 			return false;
 		Puesto other = (Puesto) obj;
-		return Objects.equals(codigo, other.codigo) && Objects.equals(descripcion, other.descripcion)
+		return Objects.equals(id_puesto, other.id_puesto) && Objects.equals(descripcion, other.descripcion)
 				&& Objects.equals(empresa, other.empresa) && Objects.equals(nombre, other.nombre);
 	}
 

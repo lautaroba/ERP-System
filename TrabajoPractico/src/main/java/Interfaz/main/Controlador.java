@@ -6,6 +6,8 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import BaseDeDatos.Conexion.Temporal;
+import Interfaz.objetos.Caracteristicas;
+import Interfaz.objetos.CompetenciasInterfaz;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

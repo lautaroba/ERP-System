@@ -4,6 +4,7 @@ Logica\entidades\Cuestionario.class
 Logica\gestores\GestorCompetencia.class
 Logica\gestores\GestorEvaluacion.class
 DTOs\CompetenciaDTO.class
+Interfaz\objetos\CompetenciasInterfaz.class
 Logica\entidades\Candidato.class
 Logica\gestores\GestorConexiones.class
 Logica\gestores\GestorPregunta.class
@@ -16,7 +17,6 @@ BaseDeDatos\MySQL\CompetenciaMySQL.class
 Interfaz\main\Controlador$3.class
 Interfaz\main\App.class
 Logica\enumeraciones\TipoRespuesta.class
-Interfaz\main\CompetenciasInterfaz.class
 Logica\enumeraciones\TipoCompetencia.class
 DAOs\PuestoDAO.class
 Logica\enumeraciones\EstadoCuestionario.class
@@ -35,7 +35,6 @@ DTOs\PuestoDTO.class
 Interfaz\main\Controlador$4.class
 Logica\gestores\GestorOpcion.class
 BaseDeDatos\MySQL\PuestoMySQL.class
+Interfaz\objetos\Caracteristicas.class
 Logica\entidades\Competencia.class
 Logica\gestores\GestorPuesto.class
-Interfaz\main\Caracteristicas.class
-Logica\relaciones\PuestoCompetencia.class
