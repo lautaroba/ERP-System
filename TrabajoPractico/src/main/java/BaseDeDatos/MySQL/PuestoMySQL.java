@@ -1,21 +1,20 @@
 package BaseDeDatos.MySQL;
 
-import BaseDeDatos.Conexion.Temporal;
+import BaseDeDatos.Conexion.Sesion;
 import Logica.entidades.Puesto;
 
 public class PuestoMySQL{
 	
 	public static void CrearPuesto(Puesto p) {
-		Temporal.entity.getTransaction().begin();
-		Temporal.entity.persist(p);
-		Temporal.entity.getTransaction().commit();
+		Sesion.entity.getTransaction().begin();
+		Sesion.entity.persist(p);
+		Sesion.entity.getTransaction().commit();
 	}
 
 	public static void ModificarPuesto(Puesto p) {
-
-		Temporal.entity.getTransaction().begin();
-		Temporal.entity.merge(p);
-		Temporal.entity.getTransaction().commit();
+		Sesion.entity.getTransaction().begin();
+		Sesion.entity.merge(p);
+		Sesion.entity.getTransaction().commit();
 		
 	}
 
@@ -25,6 +24,6 @@ public class PuestoMySQL{
 	}
 
 	public static Puesto BuscarPuesto(Puesto p) {
-		return Temporal.entity.find(Puesto.class, p.getCodigo());
+		return Sesion.entity.find(Puesto.class, p.getCodigo());
 	}
 }

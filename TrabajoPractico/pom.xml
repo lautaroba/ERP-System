@@ -60,7 +60,7 @@
                         <!-- Usage: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>Interfaz.main.App</mainClass>
+                            <mainClass>Programa.App</mainClass>
                         </configuration>
                     </execution>
                 </executions>

@@ -3,18 +3,32 @@ package Logica.entidades;
 import java.util.Date;
 
 import Logica.enumeraciones.EstadoCuestionario;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "Cuestionario")
 public class Cuestionario {
-	public String nombre;
-	public Date tiempo;
-	public EstadoCuestionario estado;
-	public String clave;
-
+	
+	@Id
+	@Column(name = "id_cuestionario")
+	private Integer id_cuestionario;
+	@Column(name = "nombre")
+	private String nombre;
+	@Column(name = "tiempo_restante")
+	private Date tiempo;
+	@Column(name = "clave")
+	private String clave;
+	@Column(name = "estado")
+	private EstadoCuestionario estado;
+	
 	public Cuestionario(String nombre, Date tiempo, EstadoCuestionario estado, String clave) {
 		super();
 		this.nombre = nombre;
 		this.tiempo = tiempo;
-		this.estado = estado;
+		this.estado = estado; 
 		this.clave = clave;
 	}
 

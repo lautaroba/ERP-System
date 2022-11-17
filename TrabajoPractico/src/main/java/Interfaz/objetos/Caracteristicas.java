@@ -15,7 +15,6 @@ public class Caracteristicas {
 		this.comps = comps;
 	}
 	
-
 	public ArrayList<CompetenciasInterfaz> getComps(){
 		return this.comps;
 	}

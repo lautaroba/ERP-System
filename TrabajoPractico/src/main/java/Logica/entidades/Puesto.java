@@ -18,7 +18,7 @@ public class Puesto {
 	@Column(name = "descripcion")
 	public String descripcion;
 	@Column(name = "empresa")
-	public String empresa;
+	public String empresa; 
 	
 	@OneToMany(
 			mappedBy="puesto",
@@ -27,6 +27,10 @@ public class Puesto {
 			)
 	public List<PonderacionCompetencia> ponderaciones = new ArrayList<>();
 
+	public Puesto() {
+	
+	}
+	
 	public Puesto(Integer codigo, String nombre, String descripcion, String empresa,
 			List<PonderacionCompetencia> ponderaciones) {
 		super();
@@ -94,7 +98,7 @@ public class Puesto {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
+		if (obj == null) 
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
@@ -103,4 +107,10 @@ public class Puesto {
 				&& Objects.equals(empresa, other.empresa) && Objects.equals(nombre, other.nombre);
 	}
 
+	@Override
+	public String toString() {
+		return "Puesto [id_puesto=" + id_puesto + ", nombre=" + nombre + ", descripcion=" + descripcion + ", empresa="
+				+ empresa + ", ponderaciones=" + ponderaciones + "]";
+	}
+	
 }

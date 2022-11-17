@@ -1,25 +1,29 @@
 package BaseDeDatos.MySQL;
 
-import BaseDeDatos.Conexion.Temporal;
+import BaseDeDatos.Conexion.Sesion;
 import Logica.entidades.Competencia;
 
 public class CompetenciaMySQL {
 	
 	public static void CrearCompetencia(Competencia c) {
-		Temporal.entity.getTransaction().begin();
-		Temporal.entity.persist(c);
-		Temporal.entity.getTransaction().commit();
+		Sesion.entity.getTransaction().begin();
+		Sesion.entity.persist(c);
+		Sesion.entity.getTransaction().commit();
 	}
-	public void ModificarCompetencia(Competencia c) {
-		// TODO Auto-generated method stub
-
+	public static void ModificarCompetencia(Competencia c) {
+		Sesion.entity.getTransaction().begin();
+		Sesion.entity.merge(c);
+		Sesion.entity.getTransaction().commit();
 	}
-	public void EliminarCompetencia(Competencia c) {
-		// TODO Auto-generated method stub
-
+	public static void EliminarCompetencia(Competencia c) {
+		
 	}
-	public Competencia BuscarCompetencia(Competencia c) {
-		return Temporal.entity.find(Competencia.class, c.getCodigo());
+	public static Competencia BuscarCompetencia(Competencia c) {
+		return Sesion.entity.find(Competencia.class, c.getCodigo());
+	}
+	
+	public static Competencia BuscarCompetenciaNombre(Competencia c) {
+		return Sesion.entity.find(Competencia.class, c.getNombre());
 	}
 	
 }

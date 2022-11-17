@@ -17,6 +17,9 @@ public class Competencia {
 	@Column(name = "tipoCompetencia")
 	private TipoCompetencia tipoCompetencia;
 
+	public Competencia() {
+	}
+	
 	public Competencia(Integer codigo, String nombre, String descripcion, TipoCompetencia tipoCompetencia) {
 		super();
 		this.id_competencia = codigo;

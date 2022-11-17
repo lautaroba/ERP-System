@@ -1,5 +1,6 @@
 package Interfaz.objetos;
 
+import Logica.enumeraciones.TipoCompetencia;
 import javafx.scene.control.CheckBox;
 
 public class CompetenciasInterfaz {
@@ -8,20 +9,22 @@ public class CompetenciasInterfaz {
 	private Boolean selComp;
 	private CheckBox checkSelComp = new CheckBox();
 	private Double puntDeseada;
+	private TipoCompetencia tipoCompetencia;
 
 	public CompetenciasInterfaz() {
 		this.nombreComp = "";
 		this.puntComp = 0.0;
 		this.puntDeseada = 0.0;
 		this.selComp = false;
-		this.checkSelComp.setSelected(false);
+		this.checkSelComp.setSelected(false); 
 	}
 	
-	public CompetenciasInterfaz(String nom, Double punt, Boolean sel) {
+	public CompetenciasInterfaz(String nom, Double punt, Boolean sel, TipoCompetencia tipoComp) {
 		this.nombreComp = nom;
 		this.puntComp = punt;
 		this.selComp = sel;
 		this.checkSelComp.setSelected(sel);
+		this.tipoCompetencia = tipoComp;
 	}
 
 	public String getNombreComp() {
@@ -67,6 +70,14 @@ public class CompetenciasInterfaz {
 
 	public void setPuntDeseada(Double puntDeseada) {
 		this.puntDeseada = puntDeseada;
+	}
+
+	public TipoCompetencia getTipoCompetencia() {
+		return tipoCompetencia;
+	}
+
+	public void setTipoCompetencia(TipoCompetencia tipoCompetencia) {
+		this.tipoCompetencia = tipoCompetencia;
 	}
 	
 }

@@ -2,6 +2,7 @@ package DTOs;
 
 import java.util.ArrayList;
 import Logica.relaciones.PonderacionCompetencia;
+import javafx.collections.ObservableList;
 
 public class PuestoDTO {
 	public Integer codigo;
@@ -9,6 +10,20 @@ public class PuestoDTO {
 	public String descripcion;
 	public String empresa;
 	public ArrayList<PonderacionCompetencia> ponderaciones;
+	
+	public PuestoDTO() {
+		
+	}
+	
+	public PuestoDTO(Integer codigo, String nombre, String descripcion, String empresa,
+			ArrayList<PonderacionCompetencia> ponderaciones) {
+		super();
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.empresa = empresa; 
+		this.ponderaciones = ponderaciones;
+	}
 
 	public Integer getCodigo() {
 		return codigo;
@@ -49,5 +64,5 @@ public class PuestoDTO {
 	public void setPonderaciones(ArrayList<PonderacionCompetencia> ponderaciones) {
 		this.ponderaciones = ponderaciones;
 	}
-
+	
 }
