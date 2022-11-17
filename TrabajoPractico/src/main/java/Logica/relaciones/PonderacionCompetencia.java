@@ -13,22 +13,19 @@ public class PonderacionCompetencia implements Serializable{
 	@ManyToOne(cascade= CascadeType.ALL)
 	@JoinColumn(name="id_competencia", referencedColumnName="id_competencia")
 	public Competencia competencia;
-	
-	
 	@Id
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	@JoinColumn(name="id_puesto")
 	public Puesto puesto;
-	
 	@Column(name = "ponderacion")
 	public Integer ponderacion;
 
 	
-	public PonderacionCompetencia(Integer ponderacion, Competencia competencia, Puesto p) {
+	public PonderacionCompetencia(Integer ponderacion, Competencia competencia, Puesto puesto) {
 		super();
 		this.ponderacion = ponderacion;
 		this.competencia = competencia;
-		this.puesto = p;
+		this.puesto = puesto; 
 	}
 
 	public Integer getPonderacion() {
@@ -46,5 +43,8 @@ public class PonderacionCompetencia implements Serializable{
 	public void setCompetencia(Competencia competencia) {
 		this.competencia = competencia;
 	}
+	
+	
+	
 }
 
